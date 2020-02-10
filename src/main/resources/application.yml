@@ -1,0 +1,30 @@
+server:
+  port: 7070
+
+spring:
+  application:
+    name: VRINITY-hystrix-dashboard
+    
+#Config Server      
+  cloud:
+    config:
+      uri: http://localhost:8888 
+      name: VRINITY-config-server
+
+#Eureka Client   
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9091/eureka/
+
+#Hystrix
+hystrix:
+  config:
+    stream:
+      maxConcurrentConnections: 50
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
